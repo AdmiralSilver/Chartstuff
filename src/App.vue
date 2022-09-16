@@ -1,15 +1,19 @@
 <template>
   <header class="header">
-    <img src="./assets/logo.png" height="45">
+    <img src="./assets/logo.png" height="45" alt="logo.png">
   </header>
 <div id="show" class="graph">
 
-  <h3 style="color: aliceblue; margin-bottom: 0" align="center" >Average temperature</h3>
-  <h1 style="color: aliceblue" align="center" > {{avgTemp}}°C</h1>
+  <h3 style="color: aliceblue; margin-bottom: 0">Average temperature</h3>
+  <h1 style="color: aliceblue"> {{avgTemp}}°C</h1>
   <canvas id="myChart" width="300" height="75" style="background: #000422"></canvas>
 </div>
-  <div class="buttons"><button class="button1">SHOW ME A TRICK</button>
-    <button class="button2">RESET</button><br/></div>
+  <div class="buttons"><button class="button button1" @click="showMe">SHOW ME A TRICK</button>
+    <button class="button button2" @click="hide">RESET</button><br/></div>
+  <div id="onclick" class="now" hidden="hidden">
+    <h3>Temperature right now</h3>
+    <h2>{{nowTemp}}°C</h2>
+  </div>
   <div id="text" class="text">
 
     <h2>Infrastructure supply chain seed lean startup technology</h2>
@@ -31,7 +35,7 @@
 <script>
 import Chart from 'chart.js/auto';
 import axios from "axios";
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzMyMTU2NSwiZXhwIjoxNjYzMzI4NzY1LCJpc3MiOiJndyJ9.Kv3OFyMfPPWVYJRcW54CCrOvtdfKoZAWFiknur-uOrk"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzMyOTYzOCwiZXhwIjoxNjYzMzM2ODM4LCJpc3MiOiJndyJ9.ydHb38lntXuF2dY1_-8Q_gdpsBozBXT41b5TSm7je3w"
 
 export default {
   name: 'App',
@@ -41,7 +45,8 @@ export default {
   data() {
     return{
       avgTemp: 0,
-        temps: []
+        temps: [],
+      nowTemp: 0
 
   }},
   methods: {
@@ -71,9 +76,18 @@ export default {
           this.temps[i] = data.weather.entries[i].temperature
 
         }
-
+        this.nowTemp = this.temps[this.temps.length - 1]
        this.avgTemp = Math.round(this.avgTemp / data.weather.entries.length)
       })
+    },
+    showMe: function () {
+
+      document.getElementById("onclick").hidden = false
+
+    },
+    hide: function (){
+      document.getElementById("onclick").hidden = true
+
     }
   },
   mounted() {
@@ -126,12 +140,9 @@ export default {
 <style>
 body {
   background-color: rgb(245, 245, 245);
+  margin: 10px;
 }
-.myChart {
-  width: 500px;
-  height: 500px;
-  background: black;
-}
+
 .buttons {
   display: flex;
   justify-content: center;
@@ -140,10 +151,12 @@ body {
 }
 .text {
   display: block;
-  margin-left: 500px;
-  margin-right: 500px ;
+  width: 30%;
+  padding-left: 35%;
+  text-anchor: middle;
   margin-top: 20px;
   font-family: "Silka bold", sans-serif;
+  align-self: center;
 }
 .graph {
   display: flex;
@@ -161,19 +174,31 @@ body {
   padding: 5px;
 }
 .button1{
-  border-radius: 25px;
-  padding: 5px;
-  margin: 4px 2px;
-  width: 200px;
   background-color: #1fb7c9;
   border-color: #1fb7c9;
   color: white;
 }
 .button2{
+  background-color: #fdfdfd;
+}
+.button {
   border-radius: 25px;
   padding: 5px;
   margin: 4px 2px;
   width: 200px;
-  background-color: #fdfdfd;
+}
+.button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.now {
+  alignment: center;
+  width: 30%;
+  padding-left: 35%;
+  text-anchor: middle;
+  font-family: "Silka bold", sans-serif;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
 }
 </style>
