@@ -1,12 +1,15 @@
 <template>
+  <header class="header">
+    <img src="./assets/logo.png" height="45">
+  </header>
 <div id="show" class="graph">
 
   <h3 style="color: aliceblue; margin-bottom: 0" align="center" >Average temperature</h3>
   <h1 style="color: aliceblue" align="center" > {{avgTemp}}°C</h1>
-  <canvas id="myChart" width="300" height="75" style="background: black"></canvas>
+  <canvas id="myChart" width="300" height="75" style="background: #000422"></canvas>
 </div>
-  <div class="buttons"><button>SHOW ME A TRICK</button>
-    <button>RESET</button><br/></div>
+  <div class="buttons"><button class="button1">SHOW ME A TRICK</button>
+    <button class="button2">RESET</button><br/></div>
   <div id="text" class="text">
 
     <h2>Infrastructure supply chain seed lean startup technology</h2>
@@ -86,7 +89,7 @@ export default {
           label: `Temperatur`,
           data: this.temps,
           backgroundColor: [
-            'rgba(255,255,255,0.2)'
+            'rgba(255,255,255,1)'
 
           ],
           tooltip: {
@@ -96,7 +99,8 @@ export default {
             'rgb(255,255,255)'
 
           ],
-          borderWidth: 1
+          borderWidth: 1,
+          borderRadius: 10
         }]
       },
       options: {
@@ -120,6 +124,9 @@ export default {
 </script>
 
 <style>
+body {
+  background-color: rgb(245, 245, 245);
+}
 .myChart {
   width: 500px;
   height: 500px;
@@ -132,19 +139,41 @@ export default {
   margin-top: 20px;
 }
 .text {
-
-  margin-left: 400px;
-  margin-right: 400px ;
+  display: block;
+  margin-left: 500px;
+  margin-right: 500px ;
   margin-top: 20px;
-  font-family: silca, sans-serif;
-
+  font-family: "Silka bold", sans-serif;
 }
 .graph {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: black;
+  background: #000521;
   font-family: silca,serif;
+  padding-left: 10px;
+}
+.header {
+  border-bottom: #ffffff;
+  background: #ffffff;
+  height: 75px;
+  padding: 5px;
+}
+.button1{
+  border-radius: 25px;
+  padding: 5px;
+  margin: 4px 2px;
+  width: 200px;
+  background-color: #1fb7c9;
+  border-color: #1fb7c9;
+  color: white;
+}
+.button2{
+  border-radius: 25px;
+  padding: 5px;
+  margin: 4px 2px;
+  width: 200px;
+  background-color: #fdfdfd;
 }
 </style>
