@@ -30,32 +30,5 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: rgb(245, 245, 245);
-  margin: 10px;
-}
-.threeimg ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #f3f3f3;
-}
-.threeimg li{
-  float: left;
-  height: 29vh;
-  padding-right: 10px;
-}
-.threeimg a{
-  display: block;
-  color: #000000;
-  text-align: left;
-  text-decoration: none;
-  padding-right: 10px;
-  font-size: 25px;
-  font-family: "Silka bold", sans-serif;
-  width: 10vw;
-  padding-top: 10px;
-  padding-left: 10px;
-}
+
 </style>

@@ -57,6 +57,9 @@ export default {
         this.nowTemp = this.temps[this.temps.length - 1]
         this.avgTemp = Math.round(this.avgTemp / data.weather.entries.length)
       })
+      // If error log it and post login credentials to https://app.tibber.com/v4/login.credentials
+      // to get new access token and update the token variable
+      // then run the function again
     }
   },
   mounted() {
