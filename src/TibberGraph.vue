@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="col text-center">
-      <h3 style="color: aliceblue; margin-bottom: 0; background: #000422">Average temperature</h3>
+      <h3 style="color: aliceblue; margin-bottom: 0; background: #000422; padding-top: 10px">Average temperature</h3>
       <h1 style="color: aliceblue; background: #000422"> {{avgTemp}}°</h1>
     </div>
     <div id="show" class="col text-center">
@@ -22,7 +22,7 @@
 import axios from "axios";
 import Chart from "chart.js/auto";
 import TibberButtons from "./TibberButtons.vue";
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzkxMjk5NywiZXhwIjoxNjYzOTIwMTk3LCJpc3MiOiJndyJ9.qJ5ltz1R9uBjJ69_kH338Dot0EiLiP1jWShvt5pcawY"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzkyMjc4NiwiZXhwIjoxNjYzOTI5OTg2LCJpc3MiOiJndyJ9.L5jNP8nHhW6QO7rKluNbCC9lgXIjUcfzY_bXmu59rUg"
 export default {
   name: "TibberGraph",
   components: {
@@ -104,11 +104,23 @@ export default {
       options: {
         scales: {
           y: {
-            beginAtZero: true
-
+            beginAtZero: true,
+            display: false
+          },
+          x: {
+            display: false
           }
+        },
+        layout: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 20
+          }
+        },
         }
-      }
+
     });
     myChart;
   }
@@ -130,4 +142,5 @@ export default {
 .container{
   background: #000422;
 }
+
 </style>

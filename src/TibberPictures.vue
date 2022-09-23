@@ -41,4 +41,7 @@ export default {
 .h3{
   padding-left: 10px;
 }
+.col-lg-6{
+  padding-left: 0;
+}
 </style>
