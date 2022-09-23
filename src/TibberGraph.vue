@@ -11,9 +11,9 @@
   <TibberButtons></TibberButtons>
   <slot name="nowTemp">
     <div id="onclick" class="now" hidden="hidden">
-      <h3>Temperature right now</h3>
+      <h3>Weather right now</h3>
+      <h1 class ="test"></h1>
       <h2>{{nowTemp}}°</h2>
-
     </div>
   </slot>
 </template>
@@ -22,7 +22,7 @@
 import axios from "axios";
 import Chart from "chart.js/auto";
 import TibberButtons from "./TibberButtons.vue";
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzkyMjc4NiwiZXhwIjoxNjYzOTI5OTg2LCJpc3MiOiJndyJ9.L5jNP8nHhW6QO7rKluNbCC9lgXIjUcfzY_bXmu59rUg"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzkzMDcyOSwiZXhwIjoxNjYzOTM3OTI5LCJpc3MiOiJndyJ9.HvNTSLD80EOwLBnKevoZp-2WaePiVIkps08SHrAyrw8"
 export default {
   name: "TibberGraph",
   components: {
@@ -32,7 +32,9 @@ export default {
     return {
       avgTemp: 0,
       temps: [],
-      nowTemp: 0
+      nowTemp: 0,
+      types: [],
+      nowType: ""
     };
   },
   methods: {
@@ -62,11 +64,22 @@ export default {
           //console.log(data.weather.entries[i].temperature)
           this.avgTemp += data.weather.entries[i].temperature
           this.temps[i] = data.weather.entries[i].temperature
-
         }
+
         // Could probably be done easier
         this.nowTemp = this.temps[this.temps.length - 1]
         this.avgTemp = Math.round(this.avgTemp / data.weather.entries.length)
+        this.nowType = data.weather.entries[data.weather.entries.length - 1].type
+        switch (this.nowType) {
+          case "cloud":
+            document.querySelector(".test").innerHTML="☁"
+            break;
+          default:
+              console.log("Add this type to the switch case: " + this.nowType)
+              document.querySelector(".test").innerHTML="❓"
+            break;
+        }
+
       })
       // If error log it and post login credentials to https://app.tibber.com/v4/login.credentials
       // to get new access token and update the token variable
