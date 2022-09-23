@@ -4,18 +4,22 @@
       <div class="col-lg-6">
         <img class="img-fluid" src="./assets/imgaaa.png" alt="img1.png">
       </div>
+
       <div class="col-lg-3">
         <img class="img-fluid" src="./assets/imgs.png" alt="imgs.png">
         <br/>
-        <p class="h3"><strong>Direct mailing strategy buzz social proof</strong></p>
+        <pre class="h3"><strong>Direct mailing
+strategy buzz
+social proof</strong></pre>
       </div>
-      <div class="col-lg-2 ">
+
+      <div class="col-lg-3">
         <img class="img-fluid" src="./assets/charge.png" alt="charge.png">
         <br/>
-        <p class="h3"><strong>Hypotheses value proposition</strong></p>
+        <pre class="h3"><strong>Hypotheses value
+proposition</strong></pre>
       </div>
     </div>
-
     </div>
 </template>
 
@@ -26,5 +30,15 @@ export default {
 </script>
 
 <style scoped>
-
+.container{
+  padding: 0;
+}
+.col-lg-3{
+  background-color: #fdfafa;
+  padding: 0;
+  font-size: xx-large;
+}
+.h3{
+  padding-left: 10px;
+}
 </style>

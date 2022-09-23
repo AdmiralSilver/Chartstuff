@@ -1,7 +1,7 @@
 <template>
   <div class="container text-sm-left">
     <div class="row-cols-1">
-      <div class="col">
+      <div class="col-lg-5 mx-auto">
         <h1>Infrastructure supply chain seed lean startup technology</h1>
         <p>Assets traction angel investor user experience social media leverage value
           propositions startup success founders creative. Equity value propositions launch
