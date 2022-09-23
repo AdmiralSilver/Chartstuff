@@ -23,7 +23,7 @@ import axios from "axios";
 import Chart from "chart.js/auto";
 import TibberButtons from "./TibberButtons.vue";
 //The token to send to the api to be able to get the data
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzkzMDcyOSwiZXhwIjoxNjYzOTM3OTI5LCJpc3MiOiJndyJ9.HvNTSLD80EOwLBnKevoZp-2WaePiVIkps08SHrAyrw8"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzkzNzk3MywiZXhwIjoxNjYzOTQ1MTczLCJpc3MiOiJndyJ9.fVqW5wWgYZqclVh-8P4m1CmuUOeOW3DONyGo-HHFQG0"
 export default {
   name: "TibberGraph",
   components: {
@@ -81,14 +81,14 @@ export default {
             document.querySelector(".test").innerHTML="🌧️"
             break;
           case "snow":
-              document.querySelector(".test").innerHTML="🌨️"
-              break;
+            document.querySelector(".test").innerHTML="🌨️"
+            break;
           case "tornado":
-              document.querySelector(".test").innerHTML="🌪"
-              break;
+            document.querySelector(".test").innerHTML="🌪"
+            break;
           default:
-              console.log("Add this type to the switch case: " + this.nowType)
-              document.querySelector(".test").innerHTML="❓"
+            console.log("Add this type to the switch case: " + this.nowType)
+            document.querySelector(".test").innerHTML="❓"
             break;
         }
       })
@@ -110,14 +110,12 @@ export default {
           data: this.temps,
           backgroundColor: [
             'rgba(255,255,255,1)'
-
           ],
           tooltip: {
             enabled: false
           },
           borderColor: [
             'rgb(255,255,255)'
-
           ],
           borderWidth: 1,
           borderRadius: 10

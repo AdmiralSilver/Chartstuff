@@ -4,7 +4,6 @@
       <div class="col-lg-6">
         <img class="img-fluid" src="./assets/imgaaa.png" alt="img1.png">
       </div>
-
       <div class="col-lg-3">
         <img class="img-fluid" src="./assets/imgs.png" alt="imgs.png">
         <br/>
@@ -12,7 +11,6 @@
 strategy buzz
 social proof</strong></pre>
       </div>
-
       <div class="col-lg-3">
         <img class="img-fluid" src="./assets/charge.png" alt="charge.png">
         <br/>
