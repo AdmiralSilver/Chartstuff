@@ -77,7 +77,6 @@ export default {
     this.getData()
     // Create the chart
     const ctx = document.getElementById('myChart');
-    console.log("mounted")
 
     const myChart = new Chart(ctx, {
       type: 'bar',

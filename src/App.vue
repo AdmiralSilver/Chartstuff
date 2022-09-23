@@ -25,6 +25,9 @@ export default {
     TibberHeader,
     TibberGraph,
   },
+  created() {
+    document.title = "Temperatures";
+  }
 }
 </script>
 
