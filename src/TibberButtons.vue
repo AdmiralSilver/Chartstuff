@@ -1,11 +1,6 @@
 <template>
   <div class="buttons"><button class="button button1" @click="showMe">SHOW ME A TRICK</button>
     <button class="button button2" @click="hide">RESET</button><br/></div>
-  <div id="onclick" class="now" hidden="hidden">
-    <h3>Temperature right now</h3>
-    <h2>{{nowTemp}}°</h2>
-    <p>Currently out of order</p>
-  </div>
 </template>
 
 <script>
@@ -46,15 +41,5 @@ export default {
 .button:active {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
-}
-.now {
-  alignment: center;
-  width: 30%;
-  padding-left: 35%;
-  text-anchor: middle;
-  font-family: "Silka bold", sans-serif;
-  justify-content: center;
-  align-self: center;
-  text-align: center;
 }
 </style>

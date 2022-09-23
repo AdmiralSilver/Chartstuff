@@ -6,7 +6,6 @@
   </head>
     <TibberHeader></TibberHeader>
     <TibberGraph></TibberGraph>
-    <TibberButtons></TibberButtons>
     <TibberText></TibberText>
     <TibberPictures></TibberPictures>
 </template>
@@ -16,11 +15,9 @@ import TibberGraph from "@/TibberGraph";
 import TibberHeader from "@/TibberHeader";
 import TibberPictures from "@/TibberPictures";
 import TibberText from "@/TibberText";
-import TibberButtons from "@/TibberButtons";
 export default {
   name: 'App',
   components: {
-    TibberButtons,
     TibberText,
     TibberPictures,
     TibberHeader,

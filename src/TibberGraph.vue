@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="col text-center text-bg-dark">
+    <div class="col text-center">
       <h3 style="color: aliceblue; margin-bottom: 0; background: #000422">Average temperature</h3>
       <h1 style="color: aliceblue; background: #000422"> {{avgTemp}}°</h1>
     </div>
@@ -8,15 +8,26 @@
       <canvas id="myChart" width="300px" height="100px" style="background: #000422"></canvas>
     </div>
   </div>
+  <TibberButtons></TibberButtons>
+  <slot name="nowTemp">
+    <div id="onclick" class="now" hidden="hidden">
+      <h3>Temperature right now</h3>
+      <h2>{{nowTemp}}°</h2>
+
+    </div>
+  </slot>
 </template>
 
 <script>
 import axios from "axios";
 import Chart from "chart.js/auto";
-
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzU4OTY1MywiZXhwIjoxNjYzNTk2ODUzLCJpc3MiOiJndyJ9.DBKJ4y6ix_3Te8zbPTdzZTQAZIH5YRsDIJbtdGnqrFo"
+import TibberButtons from "./TibberButtons.vue";
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzkxMjk5NywiZXhwIjoxNjYzOTIwMTk3LCJpc3MiOiJndyJ9.qJ5ltz1R9uBjJ69_kH338Dot0EiLiP1jWShvt5pcawY"
 export default {
   name: "TibberGraph",
+  components: {
+    TibberButtons
+  },
   data() {
     return {
       avgTemp: 0,
@@ -106,5 +117,17 @@ export default {
 </script>
 
 <style scoped>
-
+.now {
+  alignment: center;
+  width: 30%;
+  margin: auto;
+  text-anchor: middle;
+  font-family: "Silka bold", sans-serif;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+}
+.container{
+  background: #000422;
+}
 </style>
