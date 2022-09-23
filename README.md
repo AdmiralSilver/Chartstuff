@@ -1,4 +1,5 @@
-# untitled
+# Full-stack challenge at Tibber,
+# Used this project to learn about Vue.js and Javascript as a whole.
 
 ## Project setup
 ```
