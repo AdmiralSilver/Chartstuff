@@ -74,6 +74,18 @@ export default {
           case "cloud":
             document.querySelector(".test").innerHTML="☁"
             break;
+          case "sunny":
+            document.querySelector(".test").innerHTML="☀"
+            break;
+          case "rain":
+            document.querySelector(".test").innerHTML="🌧️"
+            break;
+          case "snow":
+              document.querySelector(".test").innerHTML="🌨️"
+              break;
+          case "tornado":
+              document.querySelector(".test").innerHTML="🌪"
+              break;
           default:
               console.log("Add this type to the switch case: " + this.nowType)
               document.querySelector(".test").innerHTML="❓"
