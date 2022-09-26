@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import TibberGraph from "@/TibberGraph";
-import TibberHeader from "@/TibberHeader";
-import TibberPictures from "@/TibberPictures";
-import TibberText from "@/TibberText";
+import TibberGraph from "./TibberGraph.vue";
+import TibberHeader from "./TibberHeader.vue";
+import TibberPictures from "./TibberPictures.vue";
+import TibberText from "./TibberText.vue";
 export default {
   name: 'App',
   components: {
