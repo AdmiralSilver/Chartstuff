@@ -23,7 +23,7 @@ import axios from "axios";
 import Chart from "chart.js/auto";
 import TibberButtons from "./TibberButtons.vue";
 //The token to send to the api to be able to get the data
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2NDE3MTkwMywiZXhwIjoxNjY0MTc5MTAzLCJpc3MiOiJndyJ9.66hHnZM4eZfKOYXdH75GYYQf3FeTB7MFjPypJdevEGY"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2NDE3OTIzMiwiZXhwIjoxNjY0MTg2NDMyLCJpc3MiOiJndyJ9.nmkYOotvwcrKjXCErAZAMl9Q_53xNbBetX6TFcb7IcU"
 export default {
   name: "TibberGraph",
   components: {
@@ -34,7 +34,6 @@ export default {
       avgTemp: 0,
       temps: [],
       nowTemp: 0,
-      types: [],
       nowType: ""
     };
   },
@@ -60,7 +59,7 @@ export default {
         }
       }).then(response => {
         let data = response.data.data.me.home
-        // Add the data from the query to the array and calculate the average
+        // Add the temperatures from the query to the array and calculate the average
         for (let i = 0; i < response.data.data.me.home.weather.entries.length; i++) {
           //console.log(data.weather.entries[i].temperature)
           this.avgTemp += data.weather.entries[i].temperature
@@ -70,6 +69,7 @@ export default {
         this.nowTemp = this.temps[this.temps.length - 1]
         this.avgTemp = Math.round((this.avgTemp / data.weather.entries.length)* 10) / 10
         this.nowType = data.weather.entries[data.weather.entries.length - 1].type
+        // Switch case to change what the emoji is depending on the weather
         switch (this.nowType) {
           case "cloud":
             document.querySelector(".test").innerHTML="☁"
@@ -153,7 +153,6 @@ export default {
   width: 30%;
   margin: auto;
   text-anchor: middle;
-  font-family: "Silka bold", sans-serif;
   justify-content: center;
   align-self: center;
   text-align: center;
