@@ -23,7 +23,7 @@ import axios from "axios";
 import Chart from "chart.js/auto";
 import TibberButtons from "./TibberButtons.vue";
 //The token to send to the api to be able to get the data
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2MzkzNzk3MywiZXhwIjoxNjYzOTQ1MTczLCJpc3MiOiJndyJ9.fVqW5wWgYZqclVh-8P4m1CmuUOeOW3DONyGo-HHFQG0"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2NDE3MTkwMywiZXhwIjoxNjY0MTc5MTAzLCJpc3MiOiJndyJ9.66hHnZM4eZfKOYXdH75GYYQf3FeTB7MFjPypJdevEGY"
 export default {
   name: "TibberGraph",
   components: {
@@ -68,7 +68,7 @@ export default {
         }
         // Could probably be done easier
         this.nowTemp = this.temps[this.temps.length - 1]
-        this.avgTemp = Math.round(this.avgTemp / data.weather.entries.length)
+        this.avgTemp = Math.round((this.avgTemp / data.weather.entries.length)* 10) / 10
         this.nowType = data.weather.entries[data.weather.entries.length - 1].type
         switch (this.nowType) {
           case "cloud":
