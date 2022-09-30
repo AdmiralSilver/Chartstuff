@@ -30,7 +30,7 @@ describe("App", () => {
         // Check if it finds the right button
         expect(button.exists()).toBe(true);
         // Click the button
-        // When the button is clicked i get TypeError: Cannot set property of null (setting 'hidden')
+        // When the button is clicked I get TypeError: Cannot set property of null (setting 'hidden')
         // await button.trigger('click');
         // Check if the div is visible
        // expect(wrapper.find('#onclick').isVisible()).toBe(true);
