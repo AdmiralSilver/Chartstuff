@@ -20,20 +20,20 @@ describe("App", () => {
         expect(wrapper.html()).toContain('Average temperature');
     })
 
-    // Test to see if div with id="onclick" is hidden
+    // Test to see if div with id="onclick" is hidden (it should be)
     it('onclick is hidden', () => {
         expect(wrapper.find('#onclick').isVisible()).toBe(false);
     })
 
     // Test to see if div with id="onclick" is visible
     it('click button and make onclick visible',async () => {
-        // Check if it finds the right button
+        // Check if it finds the right button (it does)
         expect(button.exists()).toBe(true);
         // Click the button
         // When the button is clicked I get TypeError: Cannot set property of null (setting 'hidden')
         // await button.trigger('click');
-        // Check if the div is visible
-       // expect(wrapper.find('#onclick').isVisible()).toBe(true);
+        // Check if the div is visible (since TypeError is thrown, this test fails)
+        // expect(wrapper.find('#onclick').isVisible()).toBe(true);
     })
 
 
