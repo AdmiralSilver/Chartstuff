@@ -22,9 +22,9 @@ describe('Mounted App', () => {
         expect(wrapper.html()).toContain('Average temperature');
     });
     it('renders correct with different data',async () => {
-        wrapper.setData({nowTemp: 13});
+        wrapper.setData({nowTemp: 13.4});
         await wrapper.vm.$nextTick();
-        expect(wrapper.html()).toContain('13');
+        expect(wrapper.html()).toContain('13.4°');
     })
 
 });
