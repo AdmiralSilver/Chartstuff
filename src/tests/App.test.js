@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils';
 
 describe("App", () => {
     const wrapper = mount(App);
-    // Link the constant button to the button with id="vis" in the component TibberButtons
+    // Link the constant: "button" to the button with id="vis" in the component TibberButtons
     const button = wrapper.find('#vis');
     // Test to see if the wrapper exists
     test('does a wrapper exist', () => {
@@ -32,8 +32,8 @@ describe("App", () => {
         // Click the button
         // When the button is clicked I get TypeError: Cannot set property of null (setting 'hidden')
         // await button.trigger('click');
-        // Check if the div is visible (since TypeError is thrown, this test fails)
-        // expect(wrapper.find('#onclick').isVisible()).toBe(true);
+        // Check if the div is visible (since button is not clicked this test will fail)
+         expect(wrapper.find('#onclick').isVisible()).toBe(true);
     })
 
 
