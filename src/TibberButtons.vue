@@ -7,10 +7,10 @@
 export default {
   name: "TibberButtons",
   methods: {
-    showMe() {
+    showMe: function () {
       document.getElementById("onclick").hidden = false;
     },
-    hide() {
+    hide: function () {
       document.getElementById("onclick").hidden = true;
     },
   },
