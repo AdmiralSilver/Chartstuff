@@ -1,5 +1,5 @@
 import {describe, expect} from "vitest";
-import TibberGraph from './src/TibberGraph.vue';
+import TibberGraph from '/src/TibberGraph.vue';
 import { mount } from '@vue/test-utils';
 
 describe("TibberGraph", () => {
