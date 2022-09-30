@@ -1,5 +1,5 @@
 <template>
-  <div class="buttons"><button class="button button1" @click="showMe">SHOW ME A TRICK</button>
+  <div class="buttons"><button id="vis" class="button button1" @click="showMe">SHOW ME A TRICK</button>
     <button class="button button2" @click="hide">RESET</button><br/></div>
 </template>
 
