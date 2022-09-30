@@ -23,7 +23,7 @@ import axios from "axios";
 import Chart from "chart.js/auto";
 import TibberButtons from "./TibberButtons.vue";
 //The token to send to the api to be able to get the data
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2NDUzMTAwMiwiZXhwIjoxNjY0NTM4MjAyLCJpc3MiOiJndyJ9.p55SUF8Ebvu5D8Mx-e_8IXiy3RMpDqUWjmJe5PLjru0"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2NDU0MTcyMywiZXhwIjoxNjY0NTQ4OTIzLCJpc3MiOiJndyJ9.srpUSa2uQK9gxR_75DymwvJBQiFqcaM09OJMD2mxaGA"
 export default {
   name: "TibberGraph",
   components: {
@@ -68,9 +68,9 @@ export default {
         }
         // Could probably be done easier
         this.time = new Date().getHours()
-        this.nowTemp = this.temps[this.time - 1]
+        this.nowTemp = this.temps[this.time]
         this.avgTemp = Math.round((this.avgTemp / data.weather.entries.length)* 10) / 10
-        this.nowType = data.weather.entries[this.time - 1].type
+        this.nowType = data.weather.entries[this.time].type
         // Switch case to change what the emoji is depending on the weather
         switch (this.nowType) {
           case "cloud":
