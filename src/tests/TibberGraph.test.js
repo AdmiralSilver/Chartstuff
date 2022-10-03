@@ -8,9 +8,9 @@ describe("TibberGraph", () => {
         expect(1).toBe(1);
     })
     // Tests that the component has data
-   it("has data", () => {
-       expect(typeof TibberGraph.data).toBe('function');
-   })
+    it("has data", () => {
+        expect(typeof TibberGraph.data).toBe('function');
+    })
 });
 
 describe('Mounted App', () => {

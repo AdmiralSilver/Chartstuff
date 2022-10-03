@@ -7,10 +7,10 @@
           crossorigin="anonymous">
   </head>
   <body style="background-color: #f5f5f5">
-    <TibberHeader></TibberHeader>
-    <TibberGraph></TibberGraph>
-    <TibberText></TibberText>
-    <TibberPictures></TibberPictures>
+  <TibberHeader></TibberHeader>
+  <TibberGraph></TibberGraph>
+  <TibberText></TibberText>
+  <TibberPictures></TibberPictures>
   </body>
 </template>
 

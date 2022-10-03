@@ -73,7 +73,7 @@ export default {
           //console.log(data.weather.entries[i].temperature)
           this.avgTemp += data.weather.entries[i].temperature
           this.temps[i] = data.weather.entries[i].temperature
-          console.log(data.weather.entries[i].type)
+          // console.log(data.weather.entries[i].type)
         }
         // Could probably be done easier or with own functions...
         this.time = new Date().getHours()
@@ -150,7 +150,7 @@ export default {
             bottom: 20
           }
         },
-        }
+      }
     });
     myChart;
   }

@@ -18,7 +18,7 @@ social proof</strong></pre>
 proposition</strong></pre>
       </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
