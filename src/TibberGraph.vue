@@ -74,7 +74,7 @@ export default {
           this.avgTemp += data.weather.entries[i].temperature
           this.temps[i] = data.weather.entries[i].temperature
         }
-        // Could probably be done easier
+        // Could probably be done easier or with own functions...
         this.time = new Date().getHours()
         this.nowTemp = this.temps[this.time]
         this.avgTemp = Math.round((this.avgTemp / data.weather.entries.length)* 10) / 10
