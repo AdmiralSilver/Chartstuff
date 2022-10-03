@@ -23,7 +23,7 @@ import axios from "axios";
 import Chart from "chart.js/auto";
 import TibberButtons from "./TibberButtons.vue";
 //The token to send to the api to be able to get the data
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2NDc4NzQ1MCwiZXhwIjoxNjY0Nzk0NjUwLCJpc3MiOiJndyJ9.nVEsfYphkDbHR465VR4p9eMAHxZ5kybpdPXWhhcJsbI"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2NDc5NTQ3NiwiZXhwIjoxNjY0ODAyNjc2LCJpc3MiOiJndyJ9.bPJolnknTJb4ORN0k6SMAtQYG46YDSo5CpvcdxYNMIY"
 export default {
   name: "TibberGraph",
   components: {
