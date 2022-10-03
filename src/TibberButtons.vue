@@ -1,6 +1,6 @@
 <template>
   <div class="buttons"><button id="vis" class="button button1" @click="showMe">SHOW ME A TRICK</button>
-    <button class="button button2" @click="hide">RESET</button><br/></div>
+    <button id="fjern" class="button button2" @click="hide">RESET</button><br/></div>
 </template>
 
 <script>
@@ -8,10 +8,12 @@ export default {
   name: "TibberButtons",
   methods: {
     showMe: function () {
-      document.getElementById("onclick").hidden = false;
+      //document.getElementById("onclick").style.display = "block";
+      this.$emit("show", true);
     },
     hide: function () {
-      document.getElementById("onclick").hidden = true;
+      //document.getElementById("onclick").style.display = "none";
+      this.$emit("show", false);
     },
   },
 }

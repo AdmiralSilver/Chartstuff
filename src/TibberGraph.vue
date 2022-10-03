@@ -8,11 +8,11 @@
       <canvas id="myChart" width="300px" height="100px" style="background: #000422"></canvas>
     </div>
   </div>
-  <TibberButtons></TibberButtons>
+  <TibberButtons v-on:show="show($event)"></TibberButtons>
   <slot name="nowTemp">
-    <div id="onclick" class="now" hidden="hidden">
+    <div id="onclick" class="now">
       <h3>Weather right now</h3>
-      <h1 class ="test"></h1>
+      <h1 class ="emoji"></h1>
       <h2>{{nowTemp}}°</h2>
     </div>
   </slot>
@@ -23,7 +23,7 @@ import axios from "axios";
 import Chart from "chart.js/auto";
 import TibberButtons from "./TibberButtons.vue";
 //The token to send to the api to be able to get the data
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2NDU0MTcyMywiZXhwIjoxNjY0NTQ4OTIzLCJpc3MiOiJndyJ9.srpUSa2uQK9gxR_75DymwvJBQiFqcaM09OJMD2mxaGA"
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI0MjAwMDFkLTE4OWItNDRjMC1hM2Q1LWQ2MjQ1MmJmZGQ0MiIsInNjb3BlcyI6WyJndy1hcGktcmVhZCIsImd3LXdlYiJdLCJpc0ltcGVyc29uYXRlZCI6dHJ1ZSwiaW1wZXJzb25hdGlvbkNsYWltcyI6eyJsYW5ndWFnZSI6ImVuLVVTIn0sImlhdCI6MTY2NDc4NzQ1MCwiZXhwIjoxNjY0Nzk0NjUwLCJpc3MiOiJndyJ9.nVEsfYphkDbHR465VR4p9eMAHxZ5kybpdPXWhhcJsbI"
 export default {
   name: "TibberGraph",
   components: {
@@ -39,6 +39,14 @@ export default {
     };
   },
   methods: {
+    //Function to get the event from the button and set the visibility of the div "onclick" to true or false
+    show: function (show) {
+      if (show) {
+        document.getElementById("onclick").style.display = "block";
+      } else {
+        document.getElementById("onclick").style.display = "none";
+      }
+    },
     getData: function () {
       // Query to get the data from the API
       axios.post(`https://app.tibber.com/v4/gql`,{
@@ -74,23 +82,23 @@ export default {
         // Switch case to change what the emoji is depending on the weather
         switch (this.nowType) {
           case "cloud":
-            document.querySelector(".test").innerHTML="☁"
+            document.querySelector(".emoji").innerHTML="☁"
             break;
           case "sunny":
-            document.querySelector(".test").innerHTML="☀"
+            document.querySelector(".emoji").innerHTML="☀"
             break;
           case "rain":
-            document.querySelector(".test").innerHTML="🌧️"
+            document.querySelector(".emoji").innerHTML="🌧️"
             break;
           case "snow":
-            document.querySelector(".test").innerHTML="🌨️"
+            document.querySelector(".emoji").innerHTML="🌨️"
             break;
           case "tornado":
-            document.querySelector(".test").innerHTML="🌪"
+            document.querySelector(".emoji").innerHTML="🌪"
             break;
           default:
             console.log("Add this type to the switch case: " + this.nowType)
-            document.querySelector(".test").innerHTML="❓"
+            document.querySelector(".emoji").innerHTML="❓"
             break;
         }
       })
@@ -158,6 +166,7 @@ export default {
   justify-content: center;
   align-self: center;
   text-align: center;
+  display: none;
 }
 .container{
   background: #000422;
