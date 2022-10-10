@@ -1,4 +1,6 @@
 <template>
+  <!--Div with the buttons, one to make the element visible and one to hide it again.
+  The element is hidden by default-->
   <div class="buttons"><button id="vis" class="button button1" @click="showMe">SHOW ME A TRICK</button>
     <button id="fjern" class="button button2" @click="hide">RESET</button><br/></div>
 </template>

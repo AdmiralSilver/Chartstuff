@@ -76,9 +76,13 @@ export default {
           // console.log(data.weather.entries[i].type)
         }
         // Could probably be done easier or with own functions...
+        // Get current time in hours
         this.time = new Date().getHours()
+        // Get the current temperature
         this.nowTemp = this.temps[this.time]
+        // Calculate the average temperature
         this.avgTemp = Math.round((this.avgTemp / data.weather.entries.length)* 10) / 10
+        // Get the current weather type
         this.nowType = data.weather.entries[this.time].type
         // Switch case to change what the emoji is depending on the weather
         switch (this.nowType) {
